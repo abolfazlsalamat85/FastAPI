@@ -40,7 +40,7 @@ def get_customer_by_id(myId:int,db:Session=Depends(get_db)):
         raise HTTPException(status.HTTP_404_NOT_FOUND,f'No Such Customer with ID => ( {myId} )')
 
 @router.get('/{myUsername}',response_model=list[CustomerOut])
-def get_customer_by_id(myUsername:str,db:Session=Depends(get_db)):
+def get_customer_by_username(myUsername:str,db:Session=Depends(get_db)):
     return crud.get_customer_by_userName(db,myUsername)
 
 #Update
